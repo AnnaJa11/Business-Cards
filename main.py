@@ -1,3 +1,10 @@
+class Card:
+    def __init__(self, first_name, last_name, company, occupation, email):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.company = company
+        self.occupation = occupation
+        self.email = email
 
 my_cards = [
     {'first_name':'Laura', 
@@ -31,4 +38,7 @@ my_cards = [
      'email': 'peter.brown@test.com'},
 
 ]
+
+
+
 
