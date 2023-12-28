@@ -52,12 +52,15 @@ card3 = Card(first_name='Naomi', last_name='Norack', company="BMI Ltd", occupati
 
 card4 = Card(first_name='Jack', last_name='Damon', company="Italian Style", occupation="Sales Manager", email='jack.damon@test.com')
 
-card5 = Card(first_name='Peter', last_name='Brown', company="ABD Consulting", occupation="Marketing Manager", email='peter.brown@test.com')
+card5 = Card(first_name='Peter', last_name='Brown', company="ABD Consulting", occupation="Marketing Manager", email='aapeter.brown@test.com')
 
-cards_list = []
+cards_list = [card1, card2, card3, card4, card5]
 
-for i in range(len(my_cards)):
-    cards_list.append(f'card{i+1}')
-print(cards_list)
+sorted_by_fname = sorted(cards_list, key=lambda card: card.first_name)
+print(sorted_by_fname)
 
+sorted_by_lname = sorted(cards_list, key=lambda card: card.last_name)
+print(sorted_by_lname)
 
+sorted_by_email = sorted(cards_list, key=lambda card: card.email)
+print(sorted_by_email)
