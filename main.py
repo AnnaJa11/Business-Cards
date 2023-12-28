@@ -39,6 +39,13 @@ my_cards = [
 
 ]
 
+removed_set  = ['company', 'occupation']
+
+
+for record in my_cards:
+    for key, value in record.items():
+        if key not in removed_set:
+            print(value)
 
 
 
