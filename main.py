@@ -9,7 +9,7 @@ class Card:
     def __str__(self):
         return f'{self.first_name} {self.last_name} {self.email}'
 
-my_cards = [
+my_data = [
     {'first_name':'Laura', 
      'last_name': 'Welch', 
      'company': "Cosmopolitan", 
@@ -42,7 +42,7 @@ my_cards = [
 
 ]
 
-my_cards_length = len(my_cards)
+my_data_length = len(my_data)
 
 card1 = Card(first_name='Laura', last_name='Welch', company="Cosmopolitan", occupation="accountant", email='laura.welch@test.com')
 
@@ -55,6 +55,10 @@ card4 = Card(first_name='Jack', last_name='Damon', company="Italian Style", occu
 card5 = Card(first_name='Peter', last_name='Brown', company="ABD Consulting", occupation="Marketing Manager", email='aapeter.brown@test.com')
 
 cards_list = [card1, card2, card3, card4, card5]
+
+print(f'My cards:\n')
+for num in range (0, len(cards_list)):
+    print(f'{cards_list[num]}\n')
 
 sorted_by_fname = sorted(cards_list, key=lambda card: card.first_name)
 print(sorted_by_fname)
