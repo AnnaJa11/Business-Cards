@@ -35,35 +35,35 @@
 
 # #     print(lisa_b.contact())
 
-# class Car:
-#   def __init__(self, make, model_name, top_speed, color):
-#        self.make = make
-#        self.model_name = model_name
-#        self.top_speed = top_speed
-#        self.color = color
+class Car:
+  def __init__(self, make, model_name, top_speed, color):
+       self.make = make
+       self.model_name = model_name
+       self.top_speed = top_speed
+       self.color = color
 
-#        # Variables
-#        self._current_speed = 0
+       # Variables
+       self._current_speed = 0
   
-#   def accelerate(self, step=10):
-#         self.current_speed += step
+  def accelerate(self, step=10):
+        self.current_speed += step
 
-#   def decelerate(self, step=10):
-#         self.current_speed -= step
+  def decelerate(self, step=10):
+        self.current_speed -= step
 
-#   def __repr__(self):
-#       return f"Car(make={self.make} model={self.model_name}, top_speed={self.top_speed}, color={self.color})"
+  def __repr__(self):
+      return f"Car(make={self.make} model={self.model_name}, top_speed={self.top_speed}, color={self.color})"
 
-#   @property
-#   def current_speed(self):
-#         return self._current_speed
+  @property
+  def current_speed(self):
+        return self._current_speed
 
-#   @current_speed.setter
-#   def current_speed(self, value):
-#         if value <= self.top_speed:
-#             self._current_speed = value
-#         else:
-#             raise ValueError(f"Value {value} exceeds top speed of {self.top_speed}")
+  @current_speed.setter
+  def current_speed(self, value):
+        if value <= self.top_speed:
+            self._current_speed = value
+        else:
+            raise ValueError(f"Value {value} exceeds top speed of {self.top_speed}")
 
 # # car = Car(make="Ford", model_name="Mustang", top_speed=250, color="Red")
 # # print(car._current_speed)
@@ -74,9 +74,9 @@
 # # car.accelerate(50)
 # # print(car.current_speed)
 
-# car = Car(make="Ford", model_name="Mustang", top_speed=250, color="Red")
-# # car.current_speed = 100
-# # print(car._current_speed)
+car = Car(make="Ford", model_name="Mustang", top_speed=250, color="Red")
+# car.current_speed = 100
+# print(car._current_speed)
 
 # # car.current_speed = 400   # wyrzuci blad o przekroczeniu predkosci
 
@@ -102,23 +102,23 @@
 # # print(issubclass(Car, Truck))
 
 # ----------------------------------------
-from faker import Faker
-fake = Faker()
-from main import BaseContact
+# from faker import Faker
+# fake = Faker()
+# from main import BaseContact
 
-base_cards = []
-def create_contacts():
-   for i in range (0,5):
-      BaseContact(first_name=fake.first_name(), 
-                              last_name=fake.last_name(), 
-                              email=fake.ascii_free_email(), 
-                              mobile= fake.phone_number())
-      base_cards.append(base_card)
-print(base_cards)
+# base_cards = []
+# def create_contacts():
+#    for i in range (0,5):
+#       BaseContact(first_name=fake.first_name(), 
+#                               last_name=fake.last_name(), 
+#                               email=fake.ascii_free_email(), 
+#                               mobile= fake.phone_number())
+#       base_cards.append(base_card)
+# print(base_cards)
 
 
 
-base_card1 = BaseContact(first_name=fake.first_name(), last_name=fake.last_name(), email=fake.ascii_free_email(), mobile= fake.phone_number())
+# base_card1 = BaseContact(first_name=fake.first_name(), last_name=fake.last_name(), email=fake.ascii_free_email(), mobile= fake.phone_number())
 
 # base_card2 = BaseContact(first_name='Leo', last_name='Michaels', email='leo.michaels@test.com', mobile= '56688444')
 
@@ -138,3 +138,41 @@ base_card1 = BaseContact(first_name=fake.first_name(), last_name=fake.last_name(
 # business_card4 = BusinessContact(first_name='Jack', last_name='Damon', company="Italian Style", occupation="Sales Manager", email='jack.damon@test.com', office_phone= '00888844')
 
 # business_card5 = BusinessContact(first_name='Peter', last_name='Brown', company="ABD Consulting", occupation="Marketing Manager", email='aapeter.brown@test.com', office_phone= '001118844')
+# -----------------------
+# def decorator(f):
+#     def new_function():
+#         print("Extra Functionality")
+#         f()
+#     return new_function
+
+# @decorator
+# def initial_function():
+#     print("Initial Functionality")
+
+# initial_function()
+# -------------------------------------
+
+
+class House:
+
+	def __init__(self, price):
+		self._price = price
+
+	@property
+	def price(self):
+		return self._price
+	
+	@price.setter
+	def price(self, new_price):
+		if new_price > 0 and isinstance(new_price, float):
+			self._price = new_price
+		else:
+			print("Please enter a valid price")
+
+	# @price.deleter
+	# def price(self):
+	# 	del self._price
+
+house = House(50000.0)  # Create instance
+house.price = 45000.0   # Update value
+print(house.price) 
